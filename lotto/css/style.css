@@ -1,0 +1,105 @@
+body,
+div,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Giants-Inline';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ramche';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Ramche.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KCC-Ganpan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  width: 800px;
+  height: auto;
+  margin: auto;
+  padding: 100px 30px;
+  background-color: rgba(255, 197, 197, 0.507);
+  font-family: 'Giants-Inline', sans-serif;
+  position: relative;
+}
+
+p {
+  display: inline;
+  margin: auto;
+  padding: 5px;
+  font-family: 'Ramche', sans-serif;
+}
+
+.winner {
+  color: red;
+  border: 3px solid red;
+  position: absolute;
+  top: 9%;
+  left: 23%;
+  transform: rotate(-15deg)
+}
+
+.chance {
+  color: blue;
+  border: 3px solid blue;
+  position: absolute;
+  right: 10%;
+}
+
+.lottoBall {
+  margin: auto;
+  padding: 100px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+[class^="ball"] {
+  background-color: orangered;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 100px;
+  font-family: 'KCC-Ganpan', sans-serif;
+  font-size: 50px;
+}
+
+.ball2 {
+  background-color: orange;
+}
+
+.ball3 {
+  background-color: rgb(249, 249, 83);
+}
+
+.ball4 {
+  background-color: seagreen;
+}
+
+.ball5 {
+  background-color: royalblue;
+}
+
+.ball6 {
+  background-color: violet;
+}
+
+.btn {
+  font-family: 'KCC-Ganpan', sans-serif;
+  width: auto;
+  margin: auto;
+}

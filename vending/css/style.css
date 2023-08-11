@@ -1,0 +1,19 @@
+/*reset css*/
+body, h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+/* CSS 꾸미기 */
+body {
+  background-color: #EAE8FE;
+}
+
+.cola-logo {
+  width: 386px;
+  margin: auto; /* 로고 이미지: 수평 중앙에 위치 */
+}

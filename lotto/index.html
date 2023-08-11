@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>로또 추첨기</title>
+</head>
+<body>
+    <div class="container">
+      <h1 class="text-center">😋 로또 맛집 🤤</h1>
+      <p class="winner">무조건 100% 당첨!</p>
+        <div class="lottoBall">
+          <div class="ball1" id="ball1">?</div>
+          <div class="ball2" id="ball2">?</div>
+          <div class="ball3" id="ball3">?</div>
+          <div class="ball4" id="ball4">?</div>
+          <div class="ball5" id="ball5">?</div>
+          <div class="ball6" id="ball6">?</div>
+        </div>
+        <div class="row p-3">
+      <button type="button" class="btn btn-light btn-outline-dark btn-lg" onclick="lottery()">로또 추첨하기 👆🏻</button>
+      </div>
+    </div>
+  <script>
+        function lottery() {
+        let lotto = [];
+        while (lotto.length < 6) {
+            var num = parseInt(Math.random() * 45 + 1);
+            if (lotto.indexOf(num) == -1) {
+                lotto.push(num);
+            }
+        }
+        lotto.sort((a,b)=>a-b);
+        document.getElementById('ball1').innerHTML = lotto[0];
+        document.getElementById('ball2').innerHTML = lotto[1];
+        document.getElementById('ball3').innerHTML = lotto[2];
+        document.getElementById('ball4').innerHTML = lotto[3];
+        document.getElementById('ball5').innerHTML = lotto[4];
+        document.getElementById('ball6').innerHTML = lotto[5];
+      }
+  </script>
+</body>
+</html>
