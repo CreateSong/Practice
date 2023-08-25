@@ -1,19 +1,312 @@
-/*reset css*/
-body, h1, h2 {
-  margin: 0;
+/*리셋 css를 잘 줘야 작업할때 크기 문제가 없음*/
+
+body,
+h1,
+h2,
+p, ul, button {
   padding: 0;
+  margin: 0;
 }
 
-ul, li {
+h1, h2, h3, h4, h5, h6 {
+  font: inherit;
+}
+
+ul,
+li {
   list-style: none;
 }
 
-/* CSS 꾸미기 */
-body {
-  background-color: #EAE8FE;
+input {
+  font: inherit;
 }
 
-.cola-logo {
-  width: 386px;
-  margin: auto; /* 로고 이미지: 수평 중앙에 위치 */
+button {
+  font: inherit;
+  border: 0;
+  background: none;
+}
+
+button:enabled {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: top;
+}
+
+
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+body {
+  background-color: #eae8fe;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+h1 img {
+  max-width: calc(100% - (96px *2)); /* 화면이 줄어들때 같이 줄어듦 (반응형) 50%를 줘도되고, 반응형에 따라 맞는 속성값을 넣어주면 됨*/
+}
+
+main {
+  width: 748px;
+  max-width: 100%;
+  display: grid;
+  gap: 20px 28px;
+}
+
+/* 749부터 적용하겠다. */
+@media (min-width: 749px) {
+  main { 
+  grid-template-areas: 
+  'section1 section2'
+  'section1 section3';
+  grid-template-columns: repeat(2, 1fr); /* 1:1 비율로 2번 넣겠다 360px 360px <이렇게 넣어도됨*/
+  grid-template-rows: 50px auto;
+  gap: 20px 28px;
+  margin: 67px auto; /* 위아래 67px 좌우는 auto로 마진을 주겠다 */
+  }
+}
+
+/*반응형 미디어 쿼리*/
+/* 748미만일때 한줄로나타내기(748px까지 적용하겠다 */
+@media (max-width: 748px) {
+  main {
+    grid-template-areas: 
+    'section1'
+    'section2' 
+    'section3';
+    grid-template-columns: 100%;
+    margin: 18px auto;
+  }
+  body {
+    background-color: white;
+  }
+  }
+
+
+.section1 {
+  grid-area: section1;
+  background-color: white;
+  padding: 30px 27px;
+}
+
+.section2 {
+  grid-area: section2;
+  background-color: white;
+  padding: 9px 27px;
+}
+
+.section3 {
+  grid-area: section3;
+  background-color: white;
+  padding: 25px 27px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.section3 .get-list {
+  flex-grow: 1;
+  flex-basis: 364px;
+  flex-shrink: 0;
+}
+
+.section3 h2 {
+  text-align: center;
+  margin-bottom: 13px;
+}
+
+.total-price {
+  font-size: 12px;
+  text-align: right;
+  margin-top: 8px;
+}
+
+/* 판매음료 */
+.cola-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+[class^='btn'] {
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  min-height: 32px;
+  font-size: 13px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-cola {
+  border-radius: 10px;
+  padding: 11px 12px 9px;
+}
+
+.btn-cola img,
+.cola-name,
+.cola-price {
+  display: block;
+}
+
+/* 버튼을 이미지로 준 이유는, 관리페이지에서 다른 음료로 바꿨을 때 이미지 업로드가 되기 위함임 */
+.btn-cola img {
+  width: 36px;
+  margin: 0 auto;
+}
+
+.cola-name {
+  font-size: 9px;
+  margin: 6px 0;
+}
+
+.cola-price {
+  font-size: 12px;
+  background-color: #6327fe;
+  color: white;
+  padding: 5px 0px;
+  font-weight: normal;
+  border-radius: 30px;
+}
+
+/*선택한 버튼*/
+.btn-cola.on {
+  box-shadow: 0 0 0 4px #6327fe; /*밖으로 보더를 주기위해 박스 쉐도우 사용 (보더를 쓰게되면 영역이 커짐)*/
+}
+
+/*품절된 버튼*/
+.btn-cola:disabled {
+  color:inherit;
+  position: relative;
+}
+
+.btn-cola:disabled::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left:0;
+  border-radius: 10px;
+}
+
+.soldout {
+  color: #eae8fe;
+  font-size: 14px;
+  z-index: 10;
+  border: 4px double #eae8fe;
+  position: absolute;
+  width: 45px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+/* 잔액 */
+.bg-box {
+  background-color: #eae8fe;
+  border-radius: 5px;
+  padding: 0 10px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 14px;
+}
+
+#input-money {
+  border: 1px solid #bdbdbd;
+  height: 32px;
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#input-money::placeholder {
+  color: #bdbdbd;
+  font-size: 13px;
+}
+/* 
+.bg-box p {
+  font-weight: 700;
+} */
+
+.section2 .bg-box p {
+  font-weight: 700;
+}
+
+.get-list {
+  background-color: #eae8fe;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 12px;
+  /* height: 106px; */
+  overflow: auto; /*넘칠때 자동으로 스크롤보여줌*/
+}
+
+.get-list li {
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0 8px 0 10px;
+  height: 46px;
+  border-radius: 5px;
+  font-size: 9px; /*브라우저 기본 폰트는 16px이므로 10이하이면 디자이너한테 폰트 사이즈 키워달라고 얘기해야함 가독성 측면*/
+}
+
+.get-list li ~ li {
+  margin-top: 6px;
+}
+
+.get-list li img {
+  width: 18px;
+}
+
+.get-list li strong {
+  /* margin: 0 0 0 auto; */
+  margin-left: auto; /* 이거 무슨 원리로 왼쪽끝에가는거지?*/
+  
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-get {
+  background-color: #6327fe;
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto calc((100% - (12px * 2)) / 3);
+  grid-template-rows: 33px 33px 106px; /*이거 뭐지?*/
+  gap: 12px;
+  margin-top: 20px;
 }
