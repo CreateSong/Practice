@@ -47,6 +47,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # node
-/node_modules/
+230830/first-project/node_modules/
+230830/npm_test/node_modules/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode
