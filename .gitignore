@@ -49,5 +49,6 @@ $RECYCLE.BIN/
 # node
 230830/first-project/node_modules/
 230830/npm_test/node_modules/
+230830/pet-sns/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode
