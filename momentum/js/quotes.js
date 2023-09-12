@@ -1,3 +1,6 @@
+// 랜덤으로 명언 출력하기
+
+
 const quotes = [
   {
     quote: "Only I can change me life, no one can do it for me.",
